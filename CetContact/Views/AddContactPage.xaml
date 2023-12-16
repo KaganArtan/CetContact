@@ -32,5 +32,6 @@
         </Frame>
         <Button Text="Kaydet" x:Name="SaveButton" Clicked="SaveButton_Clicked"></Button>
         <Button Text="Geri Dön" x:Name="BackButton" Clicked="BackButton_Clicked"></Button>
+
     </VerticalStackLayout>
 </ContentPage>

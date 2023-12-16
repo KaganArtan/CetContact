@@ -1,4 +1,7 @@
-using CetContact.Model;
+﻿using CetContact.Model;
+//using Contacts;
+using Microsoft.Maui.ApplicationModel.Communication;
+using System.Xml.Linq;
 
 namespace CetContact.Views;
 
@@ -30,7 +33,18 @@ public partial class AddContactPage : ContentPage
             Address = AdressEntry.Text,
             Email = EmailEntry.Text,
         };
+
+        if (string.IsNullOrWhiteSpace(NameEntry.Text) || string.IsNullOrWhiteSpace(EmailEntry.Text))
+        {
+            await DisplayAlert("UYARI", "Isim ve e-posta bos olamaz.", "Tamam");
+            return;
+        }
+
         await contactRepository.AddContact(contact);
         await Shell.Current.GoToAsync("..");
     }
+
+
+
+   
 }

@@ -1,4 +1,5 @@
 ﻿using CetContact.Model;
+using Microsoft.Maui.ApplicationModel.Communication;
 
 namespace CetContact.Views;
 
@@ -50,4 +51,23 @@ public partial class EditContactPage : ContentPage
     {
         await Shell.Current.GoToAsync("..");
     }
+
+    private async void DeleteContactButton_Clicked(object sender, EventArgs e)
+    {
+        var ans = await Application.Current.MainPage.DisplayAlert("Uyarı", "Kişiyi silmek istediğinize emin misiniz?", "Evet", "Hayır");
+        var contactToDelete = contactInfo;
+       
+        if (ans)
+        {
+            await contactRepository.Delete(contactInfo);
+            await DisplayAlert("Bilgi", "Kişi başarıyla silindi", "Tamam");
+
+            await Shell.Current.Navigation.PopAsync();
+        }
+        else
+        {
+            await DisplayAlert("Bilgi", "Kişi silme iptal edildi", "Tamam");
+        }
+    }
+
 }

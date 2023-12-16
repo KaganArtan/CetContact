@@ -18,6 +18,7 @@
             </ListView.ItemTemplate>
         </ListView>
         <Button Text="Kişi Ekle" x:Name="AddContactButton" Clicked="AddContactButton_Clicked"></Button>
+
     </VerticalStackLayout>
     
    

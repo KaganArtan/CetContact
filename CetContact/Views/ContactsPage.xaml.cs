@@ -42,6 +42,8 @@ public partial class ContactsPage : ContentPage
        
     }
 
+   
+
     private void ContactsList_ItemSelected(object sender, SelectedItemChangedEventArgs e)
     {
 		if(ContactsList.SelectedItem != null)
@@ -59,5 +61,5 @@ public partial class ContactsPage : ContentPage
         }
     }
 
-   
+	
 }
